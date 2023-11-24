@@ -15,16 +15,16 @@ const generateTasks = (i) =>
   new Array(i).fill(1).map((_) => ({ type: taskType(), args: args() }))
 
   let workers = [
-    // { url: 'http://localhost:8080', id: '0' },
-    // { url: 'http://localhost:8070', id: '1' },
+     { url: 'http://localhost:8080', id: '0' },
+     { url: 'http://localhost:8070', id: '1' },
     { url: 'http://worker:8080', id: '0', type: 'mult' },
     { url: 'http://worker1:8070', id: '1', type: 'add' }
  ]
 
 let multWorkers = workers.filter((w) => w.type == 'mult');
-//console.log(multWorkers)
+console.log(multWorkers)
 let addWorkers = workers.filter((w) => w.type == 'add');
-//console.log(addWorkers)
+console.log(addWorkers)
 
 const app = express()
 app.use(express.json())
