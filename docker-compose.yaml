@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  planner:
+    build:
+      context: ./planner
+      dockerfile: DockerFile.planner
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile.worker
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
+  worker1:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile.worker
+    environment:
+      - PORT=8070
+    networks:
+      - mynetwork
+    # deploy:
+    #   replicas: 5
+
+networks:
+  mynetwork:
+    driver: bridge
