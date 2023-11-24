@@ -1,5 +1,3 @@
-
-
 #etant dans le dossier planner :  docker build -t planner . -f DockerFile.planner
 
 #image dans le port: docker run --network=mynetwork --name planner -p 3000:3000 -d planner
